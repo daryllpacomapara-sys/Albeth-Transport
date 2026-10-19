@@ -1,0 +1,6 @@
+{
+  "name": "ALBETH TRANSPORT | Eastern Visayas Car Rental",
+  "description": "Premier car rental service operating exclusively in Region 8 (Eastern Visayas), Philippines. Serving Leyte, Southern Leyte, Biliran, Samar, Eastern Samar, and Northern Samar.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
