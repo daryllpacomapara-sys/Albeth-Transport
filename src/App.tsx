@@ -38,11 +38,8 @@ export default function App() {
     needDriver: false,
   });
 
-  // User auth state (WorkOS AuthKit)
-  const [user, setUser] = useState<{ name: string; email: string } | null>({
-    name: 'Daryll Pacoma',
-    email: 'daryllpacomapara@gmail.com',
-  });
+  // User auth state (WorkOS AuthKit) - starts signed out (no auto sign-in)
+  const [user, setUser] = useState<{ name: string; email: string } | null>(null);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [authModalMode, setAuthModalMode] = useState<'signin' | 'signup'>('signin');
 

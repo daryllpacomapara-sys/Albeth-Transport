@@ -57,16 +57,16 @@ export const Header: React.FC<HeaderProps> = ({
       </div>
 
       {/* Main Navigation Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        {/* Homepage Logo: Using the attached image file */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-24 flex items-center justify-between">
+        {/* Homepage Logo: Bigger with clean transparent background */}
         <div
           onClick={() => onNavigate('/')}
-          className="flex items-center gap-3 cursor-pointer group"
+          className="flex items-center gap-3 cursor-pointer group py-1"
         >
           <img
             src={ALBETH_LOGO_SRC}
             alt="ALBETH Transport & Car Rental Logo"
-            className="h-12 sm:h-14 w-auto object-contain transition-transform group-hover:scale-105 duration-200"
+            className="h-14 sm:h-18 md:h-20 w-auto object-contain transition-transform group-hover:scale-105 duration-200 drop-shadow-xs"
           />
         </div>
 

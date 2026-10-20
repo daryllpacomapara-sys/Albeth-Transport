@@ -184,9 +184,9 @@ export const INITIAL_VEHICLES: Vehicle[] = [
     insuranceType: 'Comprehensive + CTPL',
     instantBooking: true,
     status: 'available',
-    primaryImage: '/src/assets/images/mirage_g4_sedan_1792452723642.jpg',
+    primaryImage: '/images/mirage_g4_sedan_1792452723642.jpg',
     images: [
-      '/src/assets/images/mirage_g4_sedan_1792452723642.jpg',
+      '/images/mirage_g4_sedan_1792452723642.jpg',
     ],
     features: [
       '1.2L 3-Cylinder MIVEC Engine',
@@ -240,9 +240,9 @@ export const INITIAL_VEHICLES: Vehicle[] = [
     insuranceType: 'Full Fleet Comprehensive',
     instantBooking: true,
     status: 'available',
-    primaryImage: '/src/assets/images/ford_ecosport_suv_1792452723999.jpg',
+    primaryImage: '/images/ford_ecosport_suv_1792452723999.jpg',
     images: [
-      '/src/assets/images/ford_ecosport_suv_1792452723999.jpg',
+      '/images/ford_ecosport_suv_1792452723999.jpg',
     ],
     features: [
       '1.5L Ti-VCT 123 PS Gasoline Engine',
@@ -296,9 +296,9 @@ export const INITIAL_VEHICLES: Vehicle[] = [
     insuranceType: 'Full Fleet Comprehensive',
     instantBooking: true,
     status: 'available',
-    primaryImage: '/src/assets/images/toyota_tamaraw_mpv_1792452725295.jpg',
+    primaryImage: '/images/toyota_tamaraw_mpv_1792452725295.jpg',
     images: [
-      '/src/assets/images/toyota_tamaraw_mpv_1792452725295.jpg',
+      '/images/toyota_tamaraw_mpv_1792452725295.jpg',
     ],
     features: [
       '2.4L 2GD-FTV Turbo Diesel with Intercooler (400 Nm Torque)',
@@ -352,9 +352,9 @@ export const INITIAL_VEHICLES: Vehicle[] = [
     insuranceType: 'Full Fleet Comprehensive',
     instantBooking: true,
     status: 'available',
-    primaryImage: '/src/assets/images/mitsubishi_l300_van_1792452724888.jpg',
+    primaryImage: '/images/mitsubishi_l300_van_1792452724888.jpg',
     images: [
-      '/src/assets/images/mitsubishi_l300_van_1792452724888.jpg',
+      '/images/mitsubishi_l300_van_1792452724888.jpg',
     ],
     features: [
       '15-Seater FB Deluxe Passenger Enclosure with Folding Bench Rows',
@@ -421,7 +421,7 @@ export const INITIAL_HOST: UserProfile = {
   email: 'operations@albethtransport.ph',
   phone: '+63 917 842 9912',
   role: 'host',
-  avatar: '/assets/aistudio/alnew_9fa0dae2.jpg',
+  avatar: '/assets/aistudio/albeth_logo_transparent.png',
   driversLicenseNo: 'L01-14-002911',
   licenseExpiry: '2027-04-15',
   licenseVerified: true,

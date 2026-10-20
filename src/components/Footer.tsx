@@ -20,11 +20,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               onClick={() => onNavigate('/')}
               className="cursor-pointer inline-block group"
             >
-              <div className="bg-white/95 p-2 rounded-2xl inline-block shadow-md">
+              <div className="bg-white/95 p-3 rounded-2xl inline-block shadow-lg transition-transform group-hover:scale-105">
                 <img
                   src={ALBETH_LOGO_SRC}
                   alt="ALBETH Transport & Car Rental Logo"
-                  className="h-10 sm:h-12 w-auto object-contain"
+                  className="h-14 sm:h-16 w-auto object-contain drop-shadow-xs"
                 />
               </div>
             </div>

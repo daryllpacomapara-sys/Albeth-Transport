@@ -10,14 +10,14 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ onSearch }) => {
   return (
     <div className="relative bg-[#06182e] text-white pt-10 pb-16 lg:pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      {/* Background Scenic Bridge/Drive Photo with Gradient Overlay */}
+      {/* Background Scenic Bridge Overview Photo with Gradient Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1920&q=80"
-          alt="San Juanico Bridge and Eastern Visayas scenic coastal highway"
-          className="w-full h-full object-cover opacity-20 scale-105"
+          src="/images/leyte_san_juanico_1792452719242.jpg"
+          alt="Panoramic overview of San Juanico Bridge spanning Leyte to Samar across turquoise straits"
+          className="w-full h-full object-cover object-center opacity-35 scale-105 transition-transform duration-1000"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#06182e]/90 via-[#0b2545]/85 to-[#06182e]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#06182e]/85 via-[#0b2545]/75 to-[#06182e]/95" />
       </div>
 
       {/* Modern Background Effects UI: Glow Orbs & Light Mesh */}

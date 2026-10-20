@@ -45,8 +45,8 @@ export interface SeedVehicle {
 
 export const REGION_8_NOTICE = "We currently serve Region 8 (Eastern Visayas) only.";
 
-// Logo path provided by user in workspace
-export const ALBETH_LOGO_SRC = "/assets/aistudio/alnew_9fa0dae2.jpg";
+// Logo path with clean transparent background
+export const ALBETH_LOGO_SRC = "/assets/aistudio/albeth_logo_transparent.png";
 
 export const SEED_PROVINCES: SeedProvince[] = [
   {
@@ -54,7 +54,7 @@ export const SEED_PROVINCES: SeedProvince[] = [
     name: 'Leyte',
     slug: 'leyte',
     description: 'Iconic gateway of Eastern Visayas featuring the majestic San Juanico Bridge spanning Leyte to Samar, Kalanggaman Island sandbar in Palompon, MacArthur Landing Memorial in Palo, and Lake Danao National Park in Ormoc.',
-    imageUrl: '/src/assets/images/leyte_san_juanico_1792452719242.jpg',
+    imageUrl: '/images/leyte_san_juanico_1792452719242.jpg',
     touristSpots: [
       'San Juanico Bridge (Tacloban to Samar)',
       'Kalanggaman Island Sandbar (Palompon)',
@@ -68,7 +68,7 @@ export const SEED_PROVINCES: SeedProvince[] = [
     name: 'Southern Leyte',
     slug: 'southern-leyte',
     description: 'Home to the soaring Agas-Agas Bridge in Sogod (tallest bridge in the Philippines at 84m), the whale shark sanctuaries of Sogod Bay, historic Limasawa Island, and Monte Cueva Shrine in Maasin.',
-    imageUrl: '/src/assets/images/southern_leyte_bridge_1792452720072.jpg',
+    imageUrl: '/images/southern_leyte_bridge_1792452720072.jpg',
     touristSpots: [
       'Agas-Agas Bridge (Tallest in Philippines)',
       'Sogod Bay Whale Shark Sanctuary',
@@ -82,7 +82,7 @@ export const SEED_PROVINCES: SeedProvince[] = [
     name: 'Biliran',
     slug: 'biliran',
     description: 'The island wonderland famous for world-renowned Sambawan Island with its panoramic volcanic grassy ridge, white coral sandbars, crystal turquoise waters, and multi-tier Tinago Falls in Caibiran.',
-    imageUrl: '/src/assets/images/biliran_sambawan_island_1792452720734.jpg',
+    imageUrl: '/images/biliran_sambawan_island_1792452720734.jpg',
     touristSpots: [
       'Sambawan Island Tropical Ridge & Sandbar',
       'Tinago Falls (Caibiran)',
@@ -96,7 +96,7 @@ export const SEED_PROVINCES: SeedProvince[] = [
     name: 'Samar (Western Samar)',
     slug: 'samar',
     description: 'The spelunking capital of the Philippines featuring Sohoton Natural Bridge National Park & Caves in Basey, Langun-Gobingob Caves, and the multi-tiered waterfalls of Calbayog City (Tarangban & Bangon Falls).',
-    imageUrl: '/src/assets/images/samar_sohoton_caves_1792452721791.jpg',
+    imageUrl: '/images/samar_sohoton_caves_1792452721791.jpg',
     touristSpots: [
       'Sohoton Natural Bridge & Caves (Basey)',
       'Tarangban Falls & Bangon Falls (Calbayog)',
@@ -110,7 +110,7 @@ export const SEED_PROVINCES: SeedProvince[] = [
     name: 'Eastern Samar',
     slug: 'eastern-samar',
     description: 'The premier Pacific surfing haven featuring Guiuan and Calicoan Island’s ABCD surf beach, crystal-clear Linao Cave in Sulangan, pristine Divinubo Island Lighthouse, and lush coastal boulevard drives in Borongan.',
-    imageUrl: '/src/assets/images/eastern_samar_coast_1792452721763.jpg',
+    imageUrl: '/images/eastern_samar_coast_1792452721763.jpg',
     touristSpots: [
       'Calicoan Island & ABCD Surf Beach (Guiuan)',
       'Linao Cave Natural Pool (Sulangan)',
@@ -124,7 +124,7 @@ export const SEED_PROVINCES: SeedProvince[] = [
     name: 'Northern Samar',
     slug: 'northern-samar',
     description: 'Home to the colossal Biri Island Rock Formations carved by the surging Pacific Ocean waves, ancient Capul Island Spanish Lighthouse, Catarman airport corridor, and the busy Allen RORO gateway to Luzon.',
-    imageUrl: '/src/assets/images/northern_samar_rocks_1792452723089.jpg',
+    imageUrl: '/images/northern_samar_rocks_1792452723089.jpg',
     touristSpots: [
       'Biri Island Colossal Rock Formations',
       'Capul Island Historic Spanish Lighthouse',
@@ -143,7 +143,7 @@ export const SEED_CITIES: SeedCity[] = [
     provinceId: 1,
     provinceSlug: 'leyte',
     provinceName: 'Leyte',
-    imageUrl: '/src/assets/images/leyte_san_juanico_1792452719242.jpg',
+    imageUrl: '/images/leyte_san_juanico_1792452719242.jpg',
     hubType: 'airport',
     description: 'The bustling regional capital and economic gateway of Eastern Visayas. Home to Daniel Z. Romualdez Airport (TAC), MacArthur Landing Memorial, and the Leyte landing of the San Juanico Bridge.',
     popularDestinations: ['Daniel Z. Romualdez Airport (TAC)', 'San Juanico Bridge Leyte Side', 'MacArthur Landing Memorial Park', 'Robinsons Place Tacloban'],
@@ -155,7 +155,7 @@ export const SEED_CITIES: SeedCity[] = [
     provinceId: 1,
     provinceSlug: 'leyte',
     provinceName: 'Leyte',
-    imageUrl: '/src/assets/images/leyte_san_juanico_1792452719242.jpg',
+    imageUrl: '/images/leyte_san_juanico_1792452719242.jpg',
     hubType: 'seaport',
     description: 'The City of Beautiful People. Key seaport hub for FastCat and OceanJet ferries to Cebu, plus jumping point to Lake Danao National Park.',
     popularDestinations: ['Ormoc City Port Terminal', 'Lake Danao National Park', 'Alto Peak trailhead', 'Ormoc Airport (OMC)'],
@@ -167,7 +167,7 @@ export const SEED_CITIES: SeedCity[] = [
     provinceId: 1,
     provinceSlug: 'leyte',
     provinceName: 'Leyte',
-    imageUrl: '/src/assets/images/leyte_san_juanico_1792452719242.jpg',
+    imageUrl: '/images/leyte_san_juanico_1792452719242.jpg',
     hubType: 'seaport',
     description: 'Home to Visayas State University (VSU), Lintaon Peak 16,000 Blossoms, and ferry connections to Camotes and Cebu.',
     popularDestinations: ['VSU Eco-Tourism Park', 'Lintaon Peak 16,000 Blossoms', 'Baybay Seaport'],
@@ -179,7 +179,7 @@ export const SEED_CITIES: SeedCity[] = [
     provinceId: 1,
     provinceSlug: 'leyte',
     provinceName: 'Leyte',
-    imageUrl: '/src/assets/images/leyte_san_juanico_1792452719242.jpg',
+    imageUrl: '/images/leyte_san_juanico_1792452719242.jpg',
     hubType: 'city_center',
     description: 'Historic municipality hosting the MacArthur Landing Memorial National Park, regional government center, and Palo Cathedral.',
     popularDestinations: ['MacArthur Memorial Beach', 'Palo Metropolitan Cathedral', 'Government Center Hub'],
@@ -191,7 +191,7 @@ export const SEED_CITIES: SeedCity[] = [
     provinceId: 1,
     provinceSlug: 'leyte',
     provinceName: 'Leyte',
-    imageUrl: '/src/assets/images/leyte_san_juanico_1792452719242.jpg',
+    imageUrl: '/images/leyte_san_juanico_1792452719242.jpg',
     hubType: 'city_center',
     description: 'Charming coastal town along Carigara Bay, famous for pastillas de leche, traditional Spanish church heritage, and highway junctions.',
     popularDestinations: ['Carigara Bayfront', 'Holy Cross Parish Church', 'Pastillas Food Trail'],
@@ -203,7 +203,7 @@ export const SEED_CITIES: SeedCity[] = [
     provinceId: 2,
     provinceSlug: 'southern-leyte',
     provinceName: 'Southern Leyte',
-    imageUrl: '/src/assets/images/southern_leyte_bridge_1792452720072.jpg',
+    imageUrl: '/images/southern_leyte_bridge_1792452720072.jpg',
     hubType: 'seaport',
     description: 'Capital of Southern Leyte. Renowned for Monte Cueva Shrine, Cathedral of Our Lady of Assumption, and coastal routes to Sogod Bay and Agas-Agas Bridge.',
     popularDestinations: ['Monte Cueva Shrine', 'Maasin Seaport', 'Agas-Agas Bridge Access'],
@@ -215,7 +215,7 @@ export const SEED_CITIES: SeedCity[] = [
     provinceId: 3,
     provinceSlug: 'biliran',
     provinceName: 'Biliran',
-    imageUrl: '/src/assets/images/biliran_sambawan_island_1792452720734.jpg',
+    imageUrl: '/images/biliran_sambawan_island_1792452720734.jpg',
     hubType: 'seaport',
     description: 'Capital port municipality of Biliran Island. Primary jump-off point for pumpboats to Sambawan Island, Tinago Falls, and Caibiran hot springs.',
     popularDestinations: ['Naval Port Terminal', 'Sambawan Island Pumpboat Jump-off', 'Tinago Falls'],
@@ -227,7 +227,7 @@ export const SEED_CITIES: SeedCity[] = [
     provinceId: 4,
     provinceSlug: 'samar',
     provinceName: 'Samar (Western Samar)',
-    imageUrl: '/src/assets/images/samar_sohoton_caves_1792452721791.jpg',
+    imageUrl: '/images/samar_sohoton_caves_1792452721791.jpg',
     hubType: 'seaport',
     description: 'Provincial capital of Samar. Hub for travelers heading to Sohoton caves, Catbalogan pier, and scenic coastal highway drives.',
     popularDestinations: ['Samar Provincial Capitol', 'Catbalogan Pier', 'Buri Island Beach'],
@@ -239,7 +239,7 @@ export const SEED_CITIES: SeedCity[] = [
     provinceId: 4,
     provinceSlug: 'samar',
     provinceName: 'Samar (Western Samar)',
-    imageUrl: '/src/assets/images/samar_sohoton_caves_1792452721791.jpg',
+    imageUrl: '/images/samar_sohoton_caves_1792452721791.jpg',
     hubType: 'airport',
     description: 'City of Waterfalls. Commercial aviation center featuring Calbayog Airport (CYP), Tarangban Falls, Bangon Falls, and Nijaga Park.',
     popularDestinations: ['Calbayog Airport (CYP)', 'Tarangban Falls', 'Bangon Falls', 'Nijaga Park'],
@@ -251,7 +251,7 @@ export const SEED_CITIES: SeedCity[] = [
     provinceId: 5,
     provinceSlug: 'eastern-samar',
     provinceName: 'Eastern Samar',
-    imageUrl: '/src/assets/images/eastern_samar_coast_1792452721763.jpg',
+    imageUrl: '/images/eastern_samar_coast_1792452721763.jpg',
     hubType: 'city_center',
     description: 'Capital of Eastern Samar facing the Pacific Ocean. Famous for Baybay Boulevard, surfing breaks, and green mountain pass highways.',
     popularDestinations: ['Baybay Boulevard', 'Divinubo Island Lighthouse', 'Calicoan Surf Gateway'],
@@ -263,7 +263,7 @@ export const SEED_CITIES: SeedCity[] = [
     provinceId: 6,
     provinceSlug: 'northern-samar',
     provinceName: 'Northern Samar',
-    imageUrl: '/src/assets/images/northern_samar_rocks_1792452723089.jpg',
+    imageUrl: '/images/northern_samar_rocks_1792452723089.jpg',
     hubType: 'airport',
     description: 'Capital of Northern Samar with Catarman National Airport (CRM). The transportation nexus connecting Biri Rock Formations and Allen RORO port.',
     popularDestinations: ['Catarman National Airport (CRM)', 'Biri Island Rock Formations jump-off', 'Allen Port Gateway'],
@@ -280,7 +280,7 @@ export const SEED_VEHICLES: SeedVehicle[] = [
     seats: 5,
     transmission: 'automatic',
     dailyRatePhp: 1650,
-    imageUrl: '/src/assets/images/mirage_g4_sedan_1792452723642.jpg',
+    imageUrl: '/images/mirage_g4_sedan_1792452723642.jpg',
     withDriverAvailable: true,
     status: 'available',
     specs: {
@@ -311,7 +311,7 @@ export const SEED_VEHICLES: SeedVehicle[] = [
     seats: 5,
     transmission: 'automatic',
     dailyRatePhp: 2600,
-    imageUrl: '/src/assets/images/ford_ecosport_suv_1792452723999.jpg',
+    imageUrl: '/images/ford_ecosport_suv_1792452723999.jpg',
     withDriverAvailable: true,
     status: 'available',
     specs: {
@@ -342,7 +342,7 @@ export const SEED_VEHICLES: SeedVehicle[] = [
     seats: 7,
     transmission: 'automatic',
     dailyRatePhp: 2800,
-    imageUrl: '/src/assets/images/toyota_tamaraw_mpv_1792452725295.jpg',
+    imageUrl: '/images/toyota_tamaraw_mpv_1792452725295.jpg',
     withDriverAvailable: true,
     status: 'available',
     specs: {
@@ -373,7 +373,7 @@ export const SEED_VEHICLES: SeedVehicle[] = [
     seats: 15,
     transmission: 'manual',
     dailyRatePhp: 3500,
-    imageUrl: '/src/assets/images/mitsubishi_l300_van_1792452724888.jpg',
+    imageUrl: '/images/mitsubishi_l300_van_1792452724888.jpg',
     withDriverAvailable: true,
     status: 'available',
     specs: {
