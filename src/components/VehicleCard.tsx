@@ -1,6 +1,7 @@
 import React from 'react';
 import { SeedVehicle } from '../data/seedData';
-import { Users, Sparkles, Fuel, ArrowRight, ShieldCheck, Check, Gauge } from 'lucide-react';
+import { Users, Sparkles, Check } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 interface VehicleCardProps {
   vehicle: SeedVehicle;
@@ -13,6 +14,13 @@ export const VehicleCard: React.FC<VehicleCardProps> = ({
   onViewDetails,
   onBookNow,
 }) => {
+  const { t, language } = useLanguage();
+
+  const transmissionLabel =
+    vehicle.transmission === 'automatic'
+      ? t('fleet.automatic')
+      : t('fleet.manual');
+
   return (
     <div className="group bg-white rounded-3xl border border-slate-200/90 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between hover:border-[#e8871e]/50">
       {/* Vehicle Photo with badges */}
@@ -30,7 +38,7 @@ export const VehicleCard: React.FC<VehicleCardProps> = ({
             {vehicle.type}
           </span>
           <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase bg-white/95 backdrop-blur-xs text-[#0b2545]">
-            {vehicle.transmission === 'automatic' ? 'Automatic (AT)' : 'Manual (MT)'}
+            {transmissionLabel}
           </span>
         </div>
 
@@ -40,11 +48,11 @@ export const VehicleCard: React.FC<VehicleCardProps> = ({
             Region 8 Fleet
           </span>
           <div className="text-right">
-            <span className="text-xs font-normal text-slate-300">from </span>
+            <span className="text-xs font-normal text-slate-300">{t('fleet.from')} </span>
             <span className="text-xl font-black text-[#f59e0b] font-heading">
               ₱{vehicle.dailyRatePhp.toLocaleString()}
             </span>
-            <span className="text-[10px] text-slate-300">/day</span>
+            <span className="text-[10px] text-slate-300">{t('fleet.perDay')}</span>
           </div>
         </div>
       </div>
@@ -60,11 +68,13 @@ export const VehicleCard: React.FC<VehicleCardProps> = ({
           <div className="grid grid-cols-2 gap-2 my-3 p-2.5 bg-slate-50 rounded-2xl border border-slate-100 text-xs font-semibold text-[#0b2545]">
             <div className="flex items-center gap-1.5">
               <Users className="w-4 h-4 text-[#e8871e]" />
-              <span>{vehicle.seats} Passengers</span>
+              <span>
+                {vehicle.seats} {language === 'fil' ? 'Pasahero' : 'Passengers'}
+              </span>
             </div>
             <div className="flex items-center gap-1.5 capitalize">
               <Sparkles className="w-4 h-4 text-[#e8871e]" />
-              <span>{vehicle.transmission}</span>
+              <span>{transmissionLabel}</span>
             </div>
           </div>
 
@@ -97,13 +107,13 @@ export const VehicleCard: React.FC<VehicleCardProps> = ({
             onClick={() => onViewDetails(vehicle.slug)}
             className="w-full py-2.5 px-3 rounded-xl border border-slate-200 text-xs font-bold text-[#0b2545] hover:bg-slate-50 transition-colors text-center"
           >
-            View details
+            {t('fleet.viewDetails')}
           </button>
           <button
             onClick={() => onBookNow(vehicle.slug)}
             className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-[#e8871e] to-[#f59e0b] hover:from-[#d37415] hover:to-[#e8871e] text-white text-xs font-extrabold transition-all shadow-md glow-orange text-center hover:scale-[1.02] active:scale-[0.98]"
           >
-            Book now
+            {t('fleet.bookNow')}
           </button>
         </div>
       </div>

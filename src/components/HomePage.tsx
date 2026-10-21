@@ -15,6 +15,7 @@ import {
 } from '../data/seedData';
 import { TripPlannerValues } from './TripPlannerForm';
 import { ArrowRight, Sparkles, MapPin, ShieldCheck, Car } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 interface HomePageProps {
   onSearch: (values: TripPlannerValues) => void;
@@ -33,6 +34,7 @@ export const HomePage: React.FC<HomePageProps> = ({
   onSelectVehicle,
   onBookVehicle,
 }) => {
+  const { t } = useLanguage();
   // Featured cities as requested: Tacloban, Ormoc, Maasin, Catbalogan, Calbayog, Borongan
   const featuredCitySlugs = [
     'tacloban-city',
@@ -128,19 +130,19 @@ export const HomePage: React.FC<HomePageProps> = ({
           <div>
             <div className="flex items-center gap-2 text-xs font-bold text-[#e8871e] uppercase tracking-wider mb-1">
               <MapPin className="w-4 h-4 text-[#e8871e]" />
-              <span>Strictly Region 8 Coverage</span>
+              <span>{t('areas.badge')}</span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0b2545] font-heading">
-              Our Service Areas in Eastern Visayas
+              {t('areas.title')}
             </h2>
             <p className="text-sm text-slate-500 mt-1 max-w-xl">
-              Authentic local coverage across all 6 provinces. From San Juanico Bridge and Kalanggaman in Leyte, to Sambawan in Biliran, and Biri Rock Formations in Northern Samar.
+              {t('areas.subtitle')}
             </p>
           </div>
 
           <div className="p-3 bg-orange-50/80 border border-[#e8871e]/30 rounded-2xl text-xs text-[#0b2545] font-medium max-w-xs shadow-xs">
-            <span className="font-bold text-[#e8871e] block">Hard Service Area Policy:</span>
-            {REGION_8_NOTICE}
+            <span className="font-bold text-[#e8871e] block">{t('areas.policyBadge')}</span>
+            {t('notice.hardRule')}
           </div>
         </div>
 
@@ -161,13 +163,13 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6">
             <span className="text-xs uppercase font-bold tracking-widest text-[#e8871e] block mb-1">
-              Key Transport & Tourism Hubs
+              {t('cities.badge')}
             </span>
             <h3 className="text-xl sm:text-2xl font-bold text-[#0b2545] font-heading">
-              Featured Rental Locations in Region 8
+              {t('cities.title')}
             </h3>
             <p className="text-xs text-slate-500 mt-1">
-              Click any city to view local pickup points, airport delivery, and available fleet units.
+              {t('cities.subtitle')}
             </p>
           </div>
 
@@ -191,13 +193,13 @@ export const HomePage: React.FC<HomePageProps> = ({
           <div>
             <div className="flex items-center gap-2 text-xs font-bold text-[#e8871e] uppercase tracking-wider mb-1">
               <Car className="w-4 h-4 text-[#e8871e]" />
-              <span>Available Fleet</span>
+              <span>{t('fleet.badge')}</span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0b2545] font-heading">
-              Our Fleet in Eastern Visayas
+              {t('fleet.title')}
             </h2>
             <p className="text-sm text-slate-500 mt-1">
-              Tailored fleet units for city driving, rugged provincial roads, high-torque mountain passes, and large group tours.
+              {t('fleet.subtitle')}
             </p>
           </div>
 
@@ -205,7 +207,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             onClick={() => onNavigate('/vehicles')}
             className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-[#0b2545] hover:bg-slate-50 transition-colors"
           >
-            <span>View All Fleet Models</span>
+            <span>{t('fleet.viewAll')}</span>
             <ArrowRight className="w-3.5 h-3.5 text-[#e8871e]" />
           </button>
         </div>

@@ -1,27 +1,27 @@
 import React from 'react';
 import { Compass, FileText, KeyRound, ArrowRight } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export const StepsSection: React.FC<{ onStartTrip: () => void }> = ({ onStartTrip }) => {
+  const { t } = useLanguage();
+
   const steps = [
     {
       step: '01',
-      title: 'Choose your trip',
-      description:
-        'Select your pickup and dropoff city anywhere within Region 8 (Leyte, Samar, Biliran). Choose self-drive or with a licensed professional driver.',
+      title: t('steps.step1Title'),
+      description: t('steps.step1Desc'),
       icon: Compass,
     },
     {
       step: '02',
-      title: 'Request a quote',
-      description:
-        'Pick from our 4 specialized vehicles: Mirage G4, Ford Ecosport, Toyota Tamaraw 7-seater, or Mitsubishi L300 FB van. Transparent PHP rates with zero hidden fees.',
+      title: t('steps.step2Title'),
+      description: t('steps.step2Desc'),
       icon: FileText,
     },
     {
       step: '03',
-      title: 'Confirm and drive',
-      description:
-        'Receive immediate reservation confirmation. Pick up your vehicle at Tacloban Airport (TAC), local seaports, or have it delivered to your hotel.',
+      title: t('steps.step3Title'),
+      description: t('steps.step3Desc'),
       icon: KeyRound,
     },
   ];
@@ -34,13 +34,13 @@ export const StepsSection: React.FC<{ onStartTrip: () => void }> = ({ onStartTri
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="text-xs uppercase font-bold tracking-widest text-[#f59e0b] block mb-2 font-heading">
-            Simple 3-Step Process
+            {t('steps.badge')}
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white font-heading">
-            How it works
+            {t('steps.title')}
           </h2>
           <p className="text-slate-400 text-sm mt-2">
-            Seamless car and van rental from inquiry to key handover across Eastern Visayas.
+            {t('steps.subtitle')}
           </p>
         </div>
 
@@ -71,7 +71,9 @@ export const StepsSection: React.FC<{ onStartTrip: () => void }> = ({ onStartTri
                 </div>
 
                 <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-[#f59e0b] font-semibold">
-                  <span>Step {item.step} of 03</span>
+                  <span>
+                    {t('steps.stepIndicator')} {item.step} {t('steps.ofThree')}
+                  </span>
                   {index < 2 && <ArrowRight className="w-4 h-4 text-slate-500 hidden md:block" />}
                 </div>
               </div>
@@ -84,7 +86,7 @@ export const StepsSection: React.FC<{ onStartTrip: () => void }> = ({ onStartTri
             onClick={onStartTrip}
             className="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-[#e8871e] via-[#f59e0b] to-[#e8871e] hover:from-[#d37415] hover:to-[#e8871e] text-white font-black text-xs sm:text-sm rounded-2xl shadow-xl glow-orange transition-all hover:scale-[1.02]"
           >
-            <span>Start your trip plan now</span>
+            <span>{t('trip.startPlan')}</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>

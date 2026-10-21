@@ -1,12 +1,16 @@
 import React from 'react';
 import { ShieldCheck, MapPin, Phone, Mail, Clock, Radio } from 'lucide-react';
 import { REGION_8_NOTICE, ALBETH_LOGO_SRC, SEED_PROVINCES, SEED_CITIES } from '../data/seedData';
+import { useLanguage } from '../context/LanguageContext';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 interface FooterProps {
   onNavigate: (route: string) => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-[#06182e] text-slate-400 text-xs border-t border-[#0b2545] relative overflow-hidden">
       {/* Background ambient glow effect */}
@@ -30,14 +34,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </div>
 
             <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
-              Premier car and van rental service operating exclusively within Region 8 (Eastern Visayas), Philippines.
-              Providing dependable self-drive and chauffeur rentals across Leyte, Southern Leyte, Biliran, Samar, Eastern Samar, and Northern Samar.
+              {t('footer.brandDesc')}
             </p>
 
             {/* Hard rule notice callout */}
             <div className="p-3 bg-[#0b2545] border border-[#e8871e]/30 rounded-2xl text-[11px] text-slate-300">
-              <span className="font-bold text-[#f59e0b] block mb-0.5">SERVICE AREA LIMITATION:</span>
-              {REGION_8_NOTICE} All vehicles are GPS geo-fenced to Eastern Visayas.
+              <span className="font-bold text-[#f59e0b] block mb-0.5">{t('footer.limitationHeading')}</span>
+              {t('notice.hardRule')}
             </div>
 
             <div className="space-y-1.5 text-[11px] text-slate-300">
@@ -214,25 +217,28 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+        <div className="mt-12 pt-6 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
           <div>
-            Copyright 2026 ALBETH TRANSPORT & CAR RENTAL. All rights reserved.
+            {t('footer.copyright')}
           </div>
-          <div className="flex items-center gap-4">
+
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <LanguageSwitcher variant="footer" />
+            <span className="hidden sm:inline">•</span>
             <button onClick={() => onNavigate('/')} className="hover:text-slate-300">
-              Home
+              {t('nav.home')}
             </button>
             <span>•</span>
             <button onClick={() => onNavigate('/vehicles')} className="hover:text-slate-300">
-              Fleet
+              {t('nav.vehicles')}
             </button>
             <span>•</span>
             <button onClick={() => onNavigate('/contact')} className="hover:text-slate-300">
-              Contact
+              {t('nav.contact')}
             </button>
             <span>•</span>
             <button onClick={() => onNavigate('/sitemap')} className="hover:text-slate-300">
-              Sitemap
+              {t('nav.sitemap')}
             </button>
             <span>•</span>
             <span className="text-[#e8871e] font-semibold">Region 8 Exclusive</span>

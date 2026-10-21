@@ -1,13 +1,15 @@
 import React from 'react';
 import { TripPlannerForm, TripPlannerValues } from './TripPlannerForm';
-import { Sparkles, MapPin, CheckCircle, ShieldCheck, Compass, ArrowRight } from 'lucide-react';
-import { ALBETH_LOGO_SRC, REGION_8_NOTICE } from '../data/seedData';
+import { Sparkles, CheckCircle } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 interface HeroProps {
   onSearch: (values: TripPlannerValues) => void;
 }
 
 export const Hero: React.FC<HeroProps> = ({ onSearch }) => {
+  const { t } = useLanguage();
+
   return (
     <div className="relative bg-[#06182e] text-white pt-10 pb-16 lg:pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Background Scenic Bridge Overview Photo with Gradient Overlay */}
@@ -41,34 +43,33 @@ export const Hero: React.FC<HeroProps> = ({ onSearch }) => {
           {/* Eyebrow with Brand Orange Accent */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#e8871e]/15 border border-[#e8871e]/40 text-[#f59e0b] text-xs font-bold shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-[#e8871e]" />
-            <span>Eastern Visayas Car Rental</span>
+            <span>{t('hero.eyebrow')}</span>
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white font-heading leading-tight">
-            Drive across Eastern Visayas{' '}
+            {t('hero.title1')}{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f59e0b] via-[#e8871e] to-[#f97316]">
-              with confidence
+              {t('hero.titleHighlight')}
             </span>
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Book reliable cars, vans, and SUVs with or without a driver. Serving{' '}
-            <strong className="text-white font-semibold">Leyte, Samar, and Biliran</strong>.
+            {t('hero.subtitle')}
           </p>
 
           {/* Quick trust badges with Brand Colors */}
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs text-slate-300 pt-2">
             <span className="flex items-center gap-1.5 bg-white/5 border border-white/10 px-3 py-1 rounded-full backdrop-blur-xs">
               <CheckCircle className="w-3.5 h-3.5 text-[#e8871e]" />
-              <span>Tacloban Airport (TAC) Terminal Pickup</span>
+              <span>{t('hero.badgeAirport')}</span>
             </span>
             <span className="flex items-center gap-1.5 bg-white/5 border border-white/10 px-3 py-1 rounded-full backdrop-blur-xs">
               <CheckCircle className="w-3.5 h-3.5 text-[#e8871e]" />
-              <span>San Juanico Bridge Corridor Ready</span>
+              <span>{t('hero.badgeBridge')}</span>
             </span>
             <span className="flex items-center gap-1.5 bg-white/5 border border-white/10 px-3 py-1 rounded-full backdrop-blur-xs">
               <CheckCircle className="w-3.5 h-3.5 text-[#e8871e]" />
-              <span>Transparent Rates in PHP (₱)</span>
+              <span>{t('hero.badgePricing')}</span>
             </span>
           </div>
         </div>

@@ -17,6 +17,7 @@ import { SitemapPage } from './components/SitemapPage';
 import { Footer } from './components/Footer';
 import { WorkOsAuthModal } from './components/WorkOsAuthModal';
 import { TripPlannerValues } from './components/TripPlannerForm';
+import { LanguageProvider } from './context/LanguageContext';
 
 export default function App() {
   const [currentRoute, setCurrentRoute] = useState<string>('/');
@@ -79,7 +80,8 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans selection:bg-emerald-500 selection:text-white">
+    <LanguageProvider>
+      <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans selection:bg-emerald-500 selection:text-white">
       {/* Sticky Header */}
       <Header
         activeRoute={currentRoute}
@@ -211,6 +213,7 @@ export default function App() {
         mode={authModalMode}
         onSuccess={(newUser) => setUser(newUser)}
       />
-    </div>
+      </div>
+    </LanguageProvider>
   );
 }

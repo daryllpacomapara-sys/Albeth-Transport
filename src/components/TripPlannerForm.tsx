@@ -11,8 +11,8 @@ import {
   ArrowRight,
   ShieldCheck,
   AlertCircle,
-  CheckCircle2,
 } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 // Extract valid city slugs
 const validCitySlugs = SEED_CITIES.map((c) => c.slug) as [string, ...string[]];
@@ -49,6 +49,7 @@ interface TripPlannerFormProps {
 }
 
 export const TripPlannerForm: React.FC<TripPlannerFormProps> = ({ onSearch, initialValues }) => {
+  const { t, language } = useLanguage();
   const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0];
   const fourDaysLater = new Date(Date.now() + 86400000 * 4).toISOString().split('T')[0];
 
@@ -87,7 +88,7 @@ export const TripPlannerForm: React.FC<TripPlannerFormProps> = ({ onSearch, init
     });
 
     if (!result.success) {
-      setErrorMessage(result.error.issues[0]?.message || 'Please check your trip parameters.');
+      setErrorMessage(result.error.issues[0]?.message || t('trip.errorDateOrder'));
       return;
     }
 
@@ -101,13 +102,13 @@ export const TripPlannerForm: React.FC<TripPlannerFormProps> = ({ onSearch, init
         <div className="flex items-center gap-2">
           <span className="w-2.5 h-2.5 rounded-full bg-[#e8871e] animate-ping" />
           <span className="text-xs font-bold uppercase tracking-wider text-[#0b2545] font-heading">
-            Start Your Trip Plan
+            {t('trip.startPlan')}
           </span>
         </div>
 
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50 border border-[#e8871e]/30 text-[#0b2545] text-xs font-semibold">
           <ShieldCheck className="w-3.5 h-3.5 text-[#e8871e]" />
-          <span>{REGION_8_NOTICE}</span>
+          <span>{t('notice.hardRule')}</span>
         </div>
       </div>
 
@@ -124,7 +125,7 @@ export const TripPlannerForm: React.FC<TripPlannerFormProps> = ({ onSearch, init
           <div className="space-y-1">
             <label className="text-xs font-bold text-[#0b2545] uppercase tracking-wider flex items-center gap-1">
               <MapPin className="w-3.5 h-3.5 text-[#e8871e]" />
-              Pickup City (Region 8 Only)
+              {t('trip.pickupCity')}
             </label>
             <select
               value={pickupCity}
@@ -142,7 +143,7 @@ export const TripPlannerForm: React.FC<TripPlannerFormProps> = ({ onSearch, init
           <div className="space-y-1">
             <label className="text-xs font-bold text-[#0b2545] uppercase tracking-wider flex items-center gap-1">
               <MapPin className="w-3.5 h-3.5 text-[#1e4d79]" />
-              Dropoff City (Region 8 Only)
+              {t('trip.dropoffCity')}
             </label>
             <select
               value={dropoffCity}
@@ -163,7 +164,7 @@ export const TripPlannerForm: React.FC<TripPlannerFormProps> = ({ onSearch, init
           <div className="space-y-1">
             <label className="text-xs font-bold text-[#0b2545] uppercase tracking-wider flex items-center gap-1">
               <Calendar className="w-3.5 h-3.5 text-[#e8871e]" />
-              Pickup Date
+              {t('trip.pickupDate')}
             </label>
             <input
               type="date"
@@ -178,7 +179,7 @@ export const TripPlannerForm: React.FC<TripPlannerFormProps> = ({ onSearch, init
           <div className="space-y-1">
             <label className="text-xs font-bold text-[#0b2545] uppercase tracking-wider flex items-center gap-1">
               <Clock className="w-3.5 h-3.5 text-[#e8871e]" />
-              Pickup Time
+              {t('trip.pickupTime')}
             </label>
             <input
               type="time"
@@ -192,7 +193,7 @@ export const TripPlannerForm: React.FC<TripPlannerFormProps> = ({ onSearch, init
           <div className="space-y-1">
             <label className="text-xs font-bold text-[#0b2545] uppercase tracking-wider flex items-center gap-1">
               <Calendar className="w-3.5 h-3.5 text-[#1e4d79]" />
-              Dropoff Date
+              {t('trip.dropoffDate')}
             </label>
             <input
               type="date"
@@ -207,7 +208,7 @@ export const TripPlannerForm: React.FC<TripPlannerFormProps> = ({ onSearch, init
           <div className="space-y-1">
             <label className="text-xs font-bold text-[#0b2545] uppercase tracking-wider flex items-center gap-1">
               <Clock className="w-3.5 h-3.5 text-[#1e4d79]" />
-              Dropoff Time
+              {t('trip.dropoffTime')}
             </label>
             <input
               type="time"
@@ -224,14 +225,16 @@ export const TripPlannerForm: React.FC<TripPlannerFormProps> = ({ onSearch, init
           <div className="space-y-1">
             <label className="text-xs font-bold text-[#0b2545] uppercase tracking-wider flex items-center gap-1">
               <Car className="w-3.5 h-3.5 text-slate-500" />
-              Vehicle Model
+              {t('trip.vehicleType')}
             </label>
             <select
               value={vehicleType}
               onChange={(e) => setVehicleType(e.target.value as any)}
               className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-[#0b2545] focus:ring-2 focus:ring-[#e8871e] cursor-pointer"
             >
-              <option value="all">All Available Models (4 Units)</option>
+              <option value="all">
+                {language === 'fil' ? 'Lahat ng 4 na Sasakyan' : 'All Available Models (4 Units)'}
+              </option>
               <option value="sedan">Mitsubishi Mirage G4 (AT) - Sedan</option>
               <option value="suv">Ford Ecosport Titanium 1.5 (AT) - SUV</option>
               <option value="mpv">Toyota Tamaraw 2.4 GL (AT) - MPV 7-Seater</option>
@@ -242,33 +245,47 @@ export const TripPlannerForm: React.FC<TripPlannerFormProps> = ({ onSearch, init
           <div className="space-y-1">
             <label className="text-xs font-bold text-[#0b2545] uppercase tracking-wider flex items-center gap-1">
               <Users className="w-3.5 h-3.5 text-slate-500" />
-              Minimum Seats
+              {t('trip.minSeats')}
             </label>
             <select
               value={minSeats}
               onChange={(e) => setMinSeats(Number(e.target.value))}
               className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-[#0b2545] focus:ring-2 focus:ring-[#e8871e] cursor-pointer"
             >
-              <option value={2}>Any (2-15 Passengers)</option>
-              <option value={5}>5 Seats (Mirage G4 / Ecosport)</option>
-              <option value={7}>7 Seats (Toyota Tamaraw 2.4 GL)</option>
-              <option value={15}>15 Seats (Mitsubishi L300 FB Van)</option>
+              <option value={2}>
+                {language === 'fil' ? 'Kahit Ilan (2-15 Pasahero)' : 'Any (2-15 Passengers)'}
+              </option>
+              <option value={5}>
+                {language === 'fil' ? '5 Upuan (Mirage G4 / Ecosport)' : '5 Seats (Mirage G4 / Ecosport)'}
+              </option>
+              <option value={7}>
+                {language === 'fil' ? '7 Upuan (Toyota Tamaraw 2.4 GL)' : '7 Seats (Toyota Tamaraw 2.4 GL)'}
+              </option>
+              <option value={15}>
+                {language === 'fil' ? '15 Upuan (Mitsubishi L300 FB Van)' : '15 Seats (Mitsubishi L300 FB Van)'}
+              </option>
             </select>
           </div>
 
           <div className="space-y-1">
             <label className="text-xs font-bold text-[#0b2545] uppercase tracking-wider flex items-center gap-1">
               <Sparkles className="w-3.5 h-3.5 text-slate-500" />
-              Transmission
+              {t('trip.transmission')}
             </label>
             <select
               value={transmission}
               onChange={(e) => setTransmission(e.target.value as any)}
               className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-[#0b2545] focus:ring-2 focus:ring-[#e8871e] cursor-pointer"
             >
-              <option value="all">Any Transmission</option>
-              <option value="automatic">Automatic Only (Mirage, Ecosport, Tamaraw)</option>
-              <option value="manual">Manual Only (L300 FB Van)</option>
+              <option value="all">
+                {language === 'fil' ? 'Lahat ng Transmisyon' : 'Any Transmission'}
+              </option>
+              <option value="automatic">
+                {language === 'fil' ? 'Automatic Lamang (AT)' : 'Automatic Only (Mirage, Ecosport, Tamaraw)'}
+              </option>
+              <option value="manual">
+                {language === 'fil' ? 'Manual Lamang (MT - L300 FB)' : 'Manual Only (L300 FB Van)'}
+              </option>
             </select>
           </div>
         </div>
@@ -283,7 +300,9 @@ export const TripPlannerForm: React.FC<TripPlannerFormProps> = ({ onSearch, init
               className="w-4 h-4 rounded text-[#e8871e] focus:ring-[#e8871e] cursor-pointer accent-[#e8871e]"
             />
             <span className="text-xs font-semibold text-[#0b2545]">
-              Need a professional chauffeur / driver (+₱800/day)
+              {language === 'fil'
+                ? 'Kailangan ng propesyonal na tsuper / driver (+₱800/araw)'
+                : 'Need a professional chauffeur / driver (+₱800/day)'}
             </span>
           </label>
 
@@ -291,7 +310,7 @@ export const TripPlannerForm: React.FC<TripPlannerFormProps> = ({ onSearch, init
             type="submit"
             className="w-full sm:w-auto px-7 py-3 bg-gradient-to-r from-[#e8871e] via-[#f59e0b] to-[#e8871e] hover:from-[#d37415] hover:to-[#e8871e] text-white text-xs sm:text-sm font-extrabold rounded-xl shadow-lg glow-orange flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-[0.98]"
           >
-            <span>Search options</span>
+            <span>{t('trip.searchButton')}</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>
